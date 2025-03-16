@@ -28,13 +28,13 @@ public class Conductor {
     private boolean estado = true;
 
     //Constructor vacio
-    public Conductor(){
+    public Conductor() {
 
     }
 
     //constructor con parametros
-    public Conductor(Integer id, String nombre, String apellido, LocalDate fechaNacimiento, String automovil, TipoAutomovil tipoAutomovil, boolean estado){
-        this.id = id;
+    public Conductor(String nombre, String apellido, LocalDate fechaNacimiento, String automovil, TipoAutomovil tipoAutomovil, boolean estado){
+        //this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.fechaNacimiento = fechaNacimiento;

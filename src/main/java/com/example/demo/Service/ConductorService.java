@@ -14,8 +14,8 @@ public class ConductorService {
     @Autowired
     private ConductorRepository conductorRepository;
     
-    //Obtine todos los Conductores verdaderos por estado
-    public List<Conductor> obtenerTodosLosConductores() {
+    //Lista-Obtine todos los Conductores verdaderos por estado
+    public List<Conductor> listarConductores() {
         return conductorRepository.findByEstadoTrue();
     }
 
@@ -30,14 +30,14 @@ public class ConductorService {
 
 
      //Crea al Conductor
-     public void crearConductor(Conductor conductor) {
+     public Conductor crearConductor (Conductor conductor) {
             if (conductor == null) {
-                throw new IllegalArgumentException("El Conductor NO puede ser nulo");
+                throw new IllegalArgumentException("El Conductor NO puede ser nulo ");
             }
             conductorRepository.save(conductor);
         }
- 
 
+        
         //Elimina el cConductor en la vista (Pasa el Estado de True a False en BD)
         public Conductor EliminarConductor (Integer id) {
             if (id == null) {
