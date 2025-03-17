@@ -31,15 +31,15 @@ public class ConductorService {
 
      //Crea al Conductor
      public Conductor crearConductor (Conductor conductor) {
-            if (conductor == null) {
-                throw new IllegalArgumentException("El Conductor NO puede ser nulo ");
-            }
-            conductorRepository.save(conductor);
+        if (conductor == null) {
+            throw new IllegalArgumentException("El Conductor NO puede ser nulo.");
+        }
+        return conductorRepository.save(conductor);
         }
 
         
         //Elimina el cConductor en la vista (Pasa el Estado de True a False en BD)
-        public Conductor EliminarConductor (Integer id) {
+        public Conductor eliminarConductor (Integer id) {
             if (id == null) {
                 throw new IllegalArgumentException("El ID NO PUEDE SER NULO.");
             }

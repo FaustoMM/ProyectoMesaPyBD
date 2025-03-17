@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Conductor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Registrar Conductor</h1>
+        
+        <div class="card shadow p-4">
+            <form th:action="@{/conductores/guardar}" method="post" th:object="${conductor}">
+                <div class="mb-3">
+                    <label class="form-label">Nombre</label>
+                    <input type="text" class="form-control" th:field="*{nombre}" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Apellido</label>
+                    <input type="text" class="form-control" th:field="*{apellido}" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Fecha de Nacimiento</label>
+                    <input type="date" class="form-control" th:field="*{fechaNacimiento}" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Automóvil</label>
+                    <input type="text" class="form-control" th:field="*{automovil}" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Tipo de Automóvil</label>
+                    <select class="form-select" th:field="*{tipoAutomovil}" required>
+                        <option value="BASE">BASE</option>
+                        <option value="LUX">LUX</option>
+                        <option value="PREMIUM">PREMIUM</option>
+                    </select>
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" th:field="*{estado}">
+                    <label class="form-check-label">Activo</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Registrar</button>
+                <a href="/conductores" class="btn btn-secondary">Volver</a>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -26,7 +26,7 @@ public class Viaje {
     private boolean estado = true;
 
 
-    @OneToOne 
+    @ManyToOne 
     @JoinColumn(name = "conductor_id") //unir columna y trae id conductor
     private Conductor conductor;
 

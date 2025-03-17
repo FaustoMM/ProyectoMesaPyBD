@@ -2,6 +2,9 @@ package com.example.demo.Model;
 
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.persistence.*;
 
 
@@ -21,8 +24,8 @@ public class Conductor {
     @Enumerated(EnumType.STRING) //Para Ennumerar los TIPOS DE VEHICULO
     private TipoAutomovil tipoAutomovil;
 
-    @OneToOne(mappedBy = "conductor", cascade = CascadeType.ALL) 
-    private Viaje viaje;
+    @OneToMany(mappedBy = "conductor", cascade = CascadeType.ALL) 
+    private List<Viaje> viajes = new ArrayList<>();
 
     @Column
     private boolean estado = true;
@@ -86,11 +89,18 @@ public class Conductor {
     this.tipoAutomovil = tipoAutomovil;
  }
 
- public boolean getEstado(){
+ public boolean isEstado(){
     return estado;
  }
  public void setEstado(boolean estado){
     this.estado = estado;
  }
+
+ public List<Viaje> getViaje(){
+   return viajes;
+}
+public void setViaje(List<Viaje> viajes){
+   this.viajes = viajes;
+}
 
 }
