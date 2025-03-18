@@ -17,6 +17,9 @@ header {
     padding: 10px; 
     text-align: center; 
     font-family: Arial, sans-serif;
+
+    display: flex;
+    justify-content: center;
 }
 
 nav {
@@ -26,6 +29,9 @@ nav {
     padding: 10px 5px;
     top: 0;
     z-index: 1000;
+
+    align-items: center;
+    gap: 15px;
 }
 
 nav a {
@@ -75,6 +81,20 @@ main {
     text-align: center;
 }
 
+img {
+    max-width: 80%;  /* La imagen no será más grande que su contenedor */
+    height: auto;  /* Mantiene la proporción de la imagen */
+    display: block;  /* Evita espacios extra debajo de la imagen */
+    margin: 0 auto;  /* Centra la imagen horizontalmente */
+    border-radius: 10px;  /* Bordes redondeados opcionales */
+    object-fit: contain;  /* Asegura que la imagen se ajuste sin deformarse */
+}
+
+.section4 {
+    margin: 0%;
+    padding: 10px;
+    text-align: center;
+}
 
 .sobre-mi {
     flex: 1 1 35%; 
