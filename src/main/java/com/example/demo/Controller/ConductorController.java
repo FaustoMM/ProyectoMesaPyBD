@@ -20,8 +20,14 @@ public class ConductorController {
         this.conductorService = conductorService;
     }
 
+
+    @GetMapping("/")
+    public String index() {
+        return "index";
+    }
+    
     //Mostrar lista de conductores activos
-    @GetMapping
+    @GetMapping("/listaConductores")
     public String listarConductores (Model model) {
         List<Conductor> conductores = conductorService.listarConductores();
         model.addAttribute("conductores", conductores);
@@ -49,6 +55,7 @@ public class ConductorController {
         return "redirect:/conductores"; //redirige la lista
     }
 
+    @GetMapping("/")
     public String mostrarDetallesConductor (@PathVariable Integer id, Model model) {
         //llamamos al servicio para obtener el conductor
         Conductor conductor = conductorService.obtenerUnConductorPorId(id);

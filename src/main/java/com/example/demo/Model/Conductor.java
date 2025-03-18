@@ -7,7 +7,7 @@ import java.util.List;
 
 import jakarta.persistence.*;
 
-
+@Entity
 public class Conductor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
