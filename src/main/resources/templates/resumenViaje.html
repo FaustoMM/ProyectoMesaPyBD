@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIWEB</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+
+        <nav id="navbar">
+            <img src="https://i.imgur.com/5b9KdhP.png" alt="Logo" class="logo">
+            <a href="/">Inicio</a>
+            <a href="/conductores/listaConductores">Conductores </a>
+            <a href="/conductores/nuevo" target="_blank" class="boton-enlace">Formulario de condutores</a>
+            <a href="https://github.com/FaustoMM/ProyectoMesaPyBD.git">GitHub</a>
+        </nav>
+    </header>
+    
+
+    <main>
+        
+        <div class="container d-flex justify-content-center align-items-center min-vh-100">
+            <div class="card shadow-lg p-4 rounded" style="max-width: 600px; width: 100%;">
+                <h2 class="text-center mb-4 text-primary fw-bold"><i class="bi bi-file-earmark-text me-2"></i> Resumen del Viaje</h2>
+        
+                <div class="mb-3">
+                    <p><strong><i class="bi bi-person-circle me-2"></i> Nombre del Cliente:</strong> <span th:text="${viaje.nombreCliente}"></span></p>
+                </div>
+                
+                <div class="mb-3">
+                    <p><strong><i class="bi bi-telephone-fill me-2"></i> Teléfono:</strong> <span th:text="${viaje.telefonoCliente}"></span></p>
+                </div>
+        
+                <div class="mb-3">
+                    <p><strong><i class="bi bi-map-fill me-2"></i> Punto de Partida:</strong> <span th:text="${viaje.puntoPartida}"></span></p>
+                </div>
+        
+                <div class="mb-3">
+                    <p><strong><i class="bi bi-geo-alt-fill me-2"></i> Destino:</strong> <span th:text="${viaje.destino}"></span></p>
+                </div>
+        
+                <div class="mb-3">
+                    <p><strong><i class="bi bi-car-front me-2"></i> Tipo de Viaje:</strong> <span th:text="${viaje.tipo}"></span></p>
+                </div>
+        
+                <div class="mb-3">
+                    <p><strong><i class="bi bi-person-circle me-2"></i> Conductor:</strong> <span th:text="${viaje.conductor.nombre}"></span></p>
+                </div>
+        
+                <div class="mb-3">
+                    <p><strong><i class="bi bi-car-front me-2"></i> Automóvil:</strong> <span th:text="${viaje.conductor.tipoAutomovil}"></span></p>
+                </div>
+        
+                <div class="mb-3">
+                    <p><strong><i class="bi bi-cash-coin me-2"></i> Costo del Viaje:</strong> $<span th:text="${viaje.costo}"></span></p>
+                </div>
+        
+                <div class="text-center mt-4">
+                    <button onclick="window.print()" class="btn btn-success me-2 w-100 fw-bold shadow-sm">
+                        <i class="bi bi-printer me-2"></i> Imprimir
+                    </button>
+                    <a href="/" class="w-100">
+                        <button class="btn btn-outline-secondary w-100 mt-2">
+                            <i class="bi bi-house-door me-2"></i> Volver al Inicio
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+    </main>
+    
+    <footer>
+        <p>Derechos reservados &copy; 2025</p>
+    </footer>
+</body>
+</html>

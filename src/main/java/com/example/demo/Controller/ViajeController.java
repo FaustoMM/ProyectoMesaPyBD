@@ -40,8 +40,8 @@ public class ViajeController {
 
 
     //iMPRIME Y MUESTRA EL RESUMEN DEL VIAJE
-    @PostMapping("/confirmar-viaje")
-    public String confirmarViaje (@RequestParam("tipoViaje") TipoViaje tipo, 
+    @PostMapping("/confirmarViaje")
+    public String confirmarViaje (@RequestParam("tipoViaje") TipoViaje tipoViaje, 
     @RequestParam("nombreCliente") String nombreCliente, @RequestParam("telefonoCliente") String telefonoCliente, 
     @RequestParam("puntoPartida") String puntoPartida, @RequestParam("destino") String destino, 
     @RequestParam("conductorId") Integer conductorId, Model model) {
@@ -50,7 +50,7 @@ public class ViajeController {
         if (conductor == null) {
             return "redirect:/conductores?error=ConductorNoEncontrado";
         }
-        Viaje nuevoViaje = new Viaje(tipo, conductorId, nombreCliente, telefonoCliente, puntoPartida, destino, conductor);
+        Viaje nuevoViaje = new Viaje(tipoViaje, conductorId, nombreCliente, telefonoCliente, puntoPartida, destino, conductor);
         viajeService.guardarViaje(nuevoViaje);
 
         model.addAttribute("viaje", nuevoViaje);

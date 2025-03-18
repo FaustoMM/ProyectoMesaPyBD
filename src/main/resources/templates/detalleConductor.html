@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIWEB</title>
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+
+        <nav id="navbar">
+            <img src="https://i.imgur.com/5b9KdhP.png" alt="Logo" class="logo">
+            <a href="/">Inicio</a>
+            <a href="/conductores/listaConductores">Conductores </a>
+            <a href="/conductores/nuevo" target="_blank" class="boton-enlace">Formulario de condutores</a>
+            <a href="https://github.com/FaustoMM/ProyectoMesaPyBD.git">GitHub</a>
+        </nav>
+    </header>
+    
+
+    <main>
+       <!-- Información del conductor -->
+       <div class="col-md-8">
+        <h2 class="text-primary fw-bold">
+            <i class="bi bi-person-circle"></i> Detalles del Conductor
+        </h2>
+        <hr>
+        <table class="table table-hover table-striped">
+            <tbody>
+                <tr>
+                    <th class="text-secondary"><i class="bi bi-key"></i> ID</th>
+                    <td class="text-dark fw-semibold" th:text="${conductor.id}"></td>
+                </tr>
+                <tr>
+                    <th class="text-secondary"><i class="bi bi-person"></i> Nombre Completo</th>
+                    <td class="text-dark fw-semibold" th:text="|${conductor.nombre} ${conductor.apellido}|"></td>
+                </tr>
+                <tr>
+                    <th class="text-secondary"><i class="bi bi-calendar"></i> Fecha de Nacimiento</th>
+                    <td class="text-dark fw-semibold" th:text="${conductor.fechaNacimiento}"></td>
+                </tr>
+                <tr>
+                    <th class="text-secondary"><i class="bi bi-hourglass"></i> Edad</th>
+                    <td class="text-dark fw-semibold" th:text="${edad}"></td>
+                </tr>
+                <tr>
+                    <th class="text-secondary"><i class="bi bi-car-front"></i> Automóvil</th>
+                    <td class="text-dark fw-semibold" th:text="${conductor.automovil}"></td>
+                </tr>
+                <tr>
+                    <th class="text-secondary"><i class="bi bi-tags"></i> Tipo de Automóvil</th>
+                    <td class="text-dark fw-semibold" th:text="${conductor.tipoAutomovil}"></td>
+                </tr>
+                <tr>
+                    <th class="text-secondary"><i class="bi bi-check-circle"></i> Estado</th>
+                    <td>
+                        <span th:if="${conductor.estado}" class="badge bg-success">Activo</span>
+                        <span th:unless="${conductor.estado}" class="badge bg-danger">Inactivo</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </main>
+    
+    <footer>
+        <p>Derechos reservados &copy; 2025</p>
+    </footer>
+</body>
+</html>

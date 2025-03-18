@@ -31,7 +31,7 @@ public class ConductorController {
     public String listarConductores (Model model) {
         List<Conductor> conductores = conductorService.listarConductores();
         model.addAttribute("conductores", conductores);
-        return "index"; //Vista html
+        return "cardConductores"; //Vista html
     }
 
     //Mostrar formulario de registro
@@ -45,17 +45,17 @@ public class ConductorController {
     @PostMapping("/guardar")
     public String registrarConductor (@ModelAttribute Conductor conductor) {
         conductorService.crearConductor(conductor);
-        return "redirect:/conductores"; //redirige a la lista
+        return "redirect:/conductores/listaConductores"; //redirige a la lista
     }
 
     //Eliminar (desactivar) un conductor 
     @PostMapping("/eliminar/{id}")
     public String eliminarConductor (@PathVariable Integer id) {
         conductorService.eliminarConductor(id); //se desactiva estado = false
-        return "redirect:/conductores"; //redirige la lista
+        return "redirect:/conductores/listaConductores"; //redirige la lista
     }
 
-    @GetMapping("/")
+    @GetMapping("/mostarDetallesConductor/{id}")
     public String mostrarDetallesConductor (@PathVariable Integer id, Model model) {
         //llamamos al servicio para obtener el conductor
         Conductor conductor = conductorService.obtenerUnConductorPorId(id);
