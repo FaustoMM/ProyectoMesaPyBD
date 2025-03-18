@@ -22,12 +22,13 @@
     </header>
     
 
-    <main>
+    <main class="d-flex justify-content-center">
        <!-- Información del conductor -->
        <div class="col-md-8">
-        <h2 class="text-primary fw-bold">
-            <i class="bi bi-person-circle"></i> Detalles del Conductor
-        </h2>
+        <br>
+
+        <h2 class="text-white fw-bold text-center">
+            <i class="bi bi-person-circle"></i> DETALLES DEL CONDUCTOR</h2>
         <hr>
         <table class="table table-hover table-striped">
             <tbody>
@@ -65,7 +66,19 @@
             </tbody>
         </table>
 
+        <a th:href="@{/viajes/formReserva/1}" class="btn btn-dark w-100 mb-2 custom-btn">
+            <i class="bi bi-info-circle me-2"></i> Solicitar un Viaje
+        </a>
+
     </main>
+
+    <style>
+        .custom-btn:hover {
+            background-color: purple !important;
+            border-color: purple !important;
+        }
+    </style>
+
     
     <footer>
         <p>Derechos reservados &copy; 2025</p>

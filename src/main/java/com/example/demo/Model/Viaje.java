@@ -47,21 +47,22 @@ public class Viaje {
     }
 
 
-    // Metodo para el calculo del costo total del viaje
-    private double calcularCosto (TipoViaje tipo, Conductor conductor) {
+    // Método para calcular el costo del viaje
+    private double calcularCosto(TipoViaje tipo, Conductor conductor) {
       double precioBase = switch (tipo) {
-         case CORTA -> 7000;
-         case MEDIA -> 10000;
-         case LARGA -> 20000;
+          case CORTA -> 7000;
+          case MEDIA -> 10000;
+          case LARGA -> 20000;
       };
+      
       double adicional = switch (conductor.getTipoAutomovil()) {
-         case BASE -> 0;
-         case LUXE -> precioBase * 0.10;
-         case PREMIUM -> precioBase * 0.20;
+          case BASE -> 0;
+          case LUXE -> precioBase * 0.10;
+          case PREMIUM -> precioBase * 0.20;
       };
+      
       return precioBase + adicional;
-    }
-
+  }
 
     //Getters and Setters
     public Long getId(){
@@ -77,6 +78,14 @@ public class Viaje {
      public void setTipo(TipoViaje tipo){
         this.tipo = tipo;
      }
+
+     public Conductor getConductor() {
+      return conductor;
+   }
+   public void setConductor(Conductor conductor){
+      this.conductor = conductor;
+      this.costo = calcularCosto(this.tipo, conductor);
+   }
 
      public double getCosto() {
         return costo;
@@ -112,14 +121,6 @@ public class Viaje {
      public void setDestino(String destino){
         this.destino = destino;
      }
-
-     public Conductor getConductor() {
-      return conductor;
-   }
-   public void setConductor(Conductor conductor){
-      this.conductor = conductor;
-      this.costo = calcularCosto(this.tipo, conductor);
-   }
 
      public boolean isEstado() {
         return estado;

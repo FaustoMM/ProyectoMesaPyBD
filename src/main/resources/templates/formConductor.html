@@ -28,7 +28,9 @@
 
 
         <div class="container mt-5">
-            <h1 class="text-center mb-4">Registrar Conductor</h1>
+            <h2 class="text-white fw-bold text-center">
+                <i class="bi bi-person-circle"></i> REGISTRAR CONDUCTOR</h2>
+            <hr>
             
             <div class="card shadow p-4">
                 <form th:action="@{/conductores/guardar}" method="post" th:object="${conductor}">
@@ -52,7 +54,7 @@
                         <label class="form-label">Tipo de Automóvil</label>
                         <select class="form-select" th:field="*{tipoAutomovil}" required>
                             <option value="BASE">base</option>
-                            <option value="LUX">lux</option>
+                            <option value="LUXE">lux</option>
                             <option value="PREMIUM">premium</option>
                         </select>
                     </div>

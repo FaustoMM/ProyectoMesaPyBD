@@ -24,8 +24,10 @@
 
 
     <main>
-
-        <h2>LISTA DE CONDUCTORES</h2>
+        <br>
+        <h2 class="text-white fw-bold text-center">
+            <i class="bi bi-person-circle"></i> LISTA DE CONDUCTORES </h2>
+        <hr>
 
         <div class="row">
             <!-- Iterar sobre los conductores -->
@@ -41,7 +43,7 @@
                         <h5 class="card-title mb-2" th:text="|${conductor.nombre} ${conductor.apellido}|"></h5>
 
                         <p class="card-text text-muted mb-2">
-                            <i class="bi bi-car-front me-2"></i> Modelo de auto: <span
+                            <i class="bi bi-car-front me-2"></i> Modelo de Auto: <span
                                 th:text="${conductor.automovil}"></span>
                         </p>
                         <p class="card-text text-muted mb-3">
@@ -49,7 +51,7 @@
                                 th:text="${conductor.tipoAutomovil}"></span>
                         </p>
 
-                        <a th:href="@{/conductores/mostarDetallesConductor/{id}(id=${conductor.id})}" class="btn btn-primary w-100 mb-2">
+                        <a th:href="@{/conductores/mostarDetallesConductor/{id}(id=${conductor.id})}" class="btn btn-dark w-100 mb-2 custom-btn">
                             <i class="bi bi-info-circle me-2"></i> Ver Detalles
                         </a>
 
@@ -67,7 +69,12 @@
 
     </main>
 
-
+    <style>
+        .custom-btn:hover {
+            background-color: purple !important;
+            border-color: purple !important;
+        }
+    </style>
 
 
     <footer>
